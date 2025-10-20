@@ -1,0 +1,8 @@
+transaction_id,transaction_date,product_name,category,price,quantity,customer_id,city
+101,2025-10-01,Laptop,Electronics," 900.50 ",1,C01,New York
+102,2025-10-01,Mouse,Electronics,25.00,2,C02,new york
+103,2025-10-02,Book,Books,15.75,5,C01,London
+104,2025-10-02,T-Shirt,Apparel," 30.00 ",NULL,C03,Tokyo
+105,2025-10-03,Book,NULL,12.00,3,C02,London
+106,2025-10-04,Keyboard,Electronics,75.00,1,C01,New York
+107,2025-10-04,Book,Books,15.75,2,C03,tokyo
