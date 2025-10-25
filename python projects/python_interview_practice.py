@@ -89,6 +89,13 @@ sentence = "python is great and python is easy"
 words=set(sentence.split())
 print(words)
 
+sentence = "python is great and python is fun"
+remove_dup_words=[]
+for i in sentence.split():
+    if i not in remove_dup_words:
+        remove_dup_words.append(i)
+print(remove_dup_words) 
+
 #Dictionary comprehension for square of numbers
 sq={x:x**2 for x in range(1,6)}
 print(sq)
