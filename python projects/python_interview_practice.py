@@ -94,7 +94,6 @@ sq={x:x**2 for x in range(1,6)}
 print(sq)
 
 #List comprehension for square of numbers
-sq_lst=[x**2 for x in range(1,6)]
 for i in range(1,6):
     print(f"{i}:{i**2}")
 
