@@ -62,6 +62,10 @@ for sublist in nums:
     lst4.extend(sublist)
 print(sum(lst4))    
 
+#Nested list se sab numbers ka sum nikalo using list comprehension
+print([i for sublist in nums for i in sublist])
+
+
 #Dictionary me highest value ka key find karo
 scores = {"A": 45, "B": 67, "C": 89, "D": 55,"E":10}
 max_val=max(scores,key=scores.get)
