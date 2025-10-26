@@ -62,6 +62,10 @@ for sublist in nums:
     lst4.extend(sublist)
 print(sum(lst4))    
 
+#Nested list se sab numbers ka sum nikalo using list comprehension
+print([i for sublist in nums for i in sublist])
+
+
 #Dictionary me highest value ka key find karo
 scores = {"A": 45, "B": 67, "C": 89, "D": 55,"E":10}
 max_val=max(scores,key=scores.get)
@@ -85,12 +89,18 @@ sentence = "python is great and python is easy"
 words=set(sentence.split())
 print(words)
 
+sentence = "python is great and python is fun"
+remove_dup_words=[]
+for i in sentence.split():
+    if i not in remove_dup_words:
+        remove_dup_words.append(i)
+print(remove_dup_words) 
+
 #Dictionary comprehension for square of numbers
 sq={x:x**2 for x in range(1,6)}
 print(sq)
 
 #List comprehension for square of numbers
-sq_lst=[x**2 for x in range(1,6)]
 for i in range(1,6):
     print(f"{i}:{i**2}")
 
