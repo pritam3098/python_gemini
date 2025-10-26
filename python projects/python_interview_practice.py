@@ -192,5 +192,249 @@ b += " world"
 print(a)
 
 
+#Find the length of a string without using len()
+str1="pritam"
+c=0
+for ch in str1:
+    c=c+1
+print(c)    
 
+#Replace all vowels with ‘*’
+s = "Education"
+vowels = "aeiouAEIOU"
+
+new_s=""
+for ch in s:
+    if ch in vowels:
+        new_s=new_s+"*"
+    else:
+        new_s=new_s+ch
+
+print(new_s)            
+
+#Find the first non-repeated character
+s = "aabbcde"
+u_str=list(set(s))
+freq={}
+for ch in s:
+    freq[ch]=freq.get(ch,0)+1
+
+print(freq)   
+
+for k,v in freq.items():
+    if v==1:
+        print(k)
+        break
+
+#Find the first non-repeated character using count function:
+s = "aabbcde"
+print(s.count("a"))
+for ch in s:
+    if s.count(ch)==1:
+        print(ch)
+        break
+
+#Check if string contains only digits
+s = "12345"
+if s.isdigit():
+    print("yes only digits")
+else:
+    print("no digits")    
+
+#Swap case (upper → lower, lower → upper)
+s = "PyThOn"
+print(s.swapcase())
+
+#Remove duplicate characters
+s = "programming"
+print("".join(list(set(s))))
+
+#Remove duplicate characters preserve the order
+s = "programming"
+r_s=""
+for ch in s:
+    if ch not in r_s:
+        r_s=r_s+ch
+
+print(r_s)
+
+#Check if two strings are anagrams Anagram = same letters but different order.
+s1 = "listen"
+s2 = "silent"
+
+if sorted(s1)==sorted(s2):
+    print("anagram")
+else:
+    print("not anagram")    
+
+#Reverse each word in a sentence
+s = "I love Python"
+words=s.split()
+rev_words=[w[::-1] for w in words]
+print(" ".join(rev_words))
+
+#Remove all special characters
+s = "P@y#th$o%n!"
+clean=""
+
+for ch in s:
+    if ch.isalnum():
+        clean=clean+ch
+print(clean)        
+
+#Count uppercase, lowercase, digits & special chars
+s = "PyThon123$#"
+upper = lower = digit = special = 0
+
+for ch in s:
+    if ch.isupper():
+        upper=upper+1
     
+    elif ch.islower():
+        lower+=1
+    elif ch.isdigit():
+        digit+=1
+    else:
+        special+=1
+
+print(upper,lower,digit,special)
+
+# Find the most frequent character
+#method 1:
+s = "success"
+
+for ch in s:
+    print(f"{ch} : {s.count(ch)}")
+
+freq={}
+for ch in s:
+    freq[ch]=freq.get(ch,0)+1
+print(freq)
+
+print([k for k,v in freq.items() if v>1])
+
+#method 2:
+max_char=max(s,key=s.count)
+print(max_char)
+
+#Capitalize first letter of every word (without using title())
+s = "python is fun"
+words=s.split()
+print(" ".join(w[0].upper()+w[1:] for w in words))
+
+
+#Remove characters at even indexes
+s = "abcdefg"
+n=[]
+for i in range(len(s)):
+    if i%2!=0:
+        n.append(s[i])
+
+print("".join(n))
+
+#Find common characters between two strings
+s1 = "apple"
+s2 = "grape"
+comman=set(s1)&set(s2)
+print(comman)
+
+#Find ASCII value of each character
+s="abc"
+for ch in s:
+    print(ord(ch))
+
+
+#Convert alternate characters to uppercase
+s = "python"
+alt_st=""
+for i in range(len(s)):
+    if  i%2==0:
+        alt_st+=s[i].upper()
+    else:
+        alt_st+=s[i].lower()
+print(alt_st)     
+
+#Check if a string contains all unique characters
+s = "python"
+if len(s)==len(set(s)):
+    print("all unique")
+else:
+    print("not unique")    
+  
+#Find the longest word in a sentence
+s = "Python is a powerful programming language"
+words=s.split()
+len_of_w=[len(w) for w in words]
+print(max(len_of_w))
+
+
+#Count uppercase letters without using isupper()
+s = "PyThon"
+c=0
+for ch in s:
+    if ch.isupper():
+        c=c+1
+print(c)      
+
+#Replace digits with their word form
+s = "I have 2 apples and 3 bananas"
+words = {'0':'zero','1':'one','2':'two','3':'three','4':'four',
+         '5':'five','6':'six','7':'seven','8':'eight','9':'nine'}
+
+words_s=""
+for ch in s:
+    if ch.isdigit():
+        words_s+=words[ch]
+    else:
+        words_s+=ch
+
+print(words_s)        
+
+#Find second most frequent character
+def find_second_most_frequent_manual(text):
+    """
+    Finds the second most frequent character using a manual dictionary.
+    """
+    if not text:
+        return None
+        
+    # 1. Count frequencies manually
+    counts = {}
+    for char in text:
+        counts[char] = counts.get(char, 0) + 1
+    
+    # 2. Sort the counts
+    # We sort the items (key-value pairs) based on the value (count)
+    # 'key=lambda item: item[1]' tells sort to look at the count
+    sorted_counts = sorted(counts.items(), key=lambda item: item[1], reverse=True)
+    
+    # sorted_counts for "hello world" will be:
+    # [('l', 3), ('o', 2), ('h', 1), ('e', 1), (' ', 1), ('w', 1), ('r', 1), ('d', 1)]
+    
+    # 3. Check if there is a second item
+    if len(sorted_counts) < 2:
+        return None
+
+    # 4. Get the character from the second item
+    # sorted_counts[1] is ('o', 2)
+    # sorted_counts[1][0] is 'o'
+    return sorted_counts[1][0]
+
+# --- Example ---
+my_string = "programming"
+second_char = find_second_most_frequent_manual(my_string)
+print(f"\nString: '{my_string}'")
+print(f"Second most frequent character: '{second_char}'") # 'r', 'g', 'm' are all 2
+
+
+
+
+
+
+
+
+
+
+
+
+
