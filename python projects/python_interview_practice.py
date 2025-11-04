@@ -437,14 +437,253 @@ print(f"\nString: '{my_string}'")
 print(f"Second most frequent character: '{second_char}'") # 'r', 'g', 'm' are all 2
 
 
+# First non repeating character 
+str1="aabbccde"
+freq={}
+for ch in str1:
+    freq[ch]=freq.get(ch,0)+1
+
+print(freq)
+lst=[k for k,v in freq.items() if v==1]
+print(lst[0])
+
+
+s = "aabbccde"
+for ch in s:
+    if s.count(ch) == 1:
+        print(ch)
+        break
+
+#sliding window sum
+lst=[1,2,3,4,5,6]
+k=3
+new_lst=[]
+for i in range(len(lst)-k+1):
+    window_sum=sum(lst[i:i+k])
+    new_lst.append(window_sum)
+
+print(new_lst)   
+
+
+#Function with default argument
+def greet(name="Guest"):
+    print("Hello", name)
+
+greet()
+greet("Priya")
+
+#*args — Variable Number of Arguments *args tab use hota hai jab aapko pehle se nahi pata kitne arguments function me pass honge.
+#Yeh sab arguments ko ek tuple me store karta hai.
+def total_bill(*prices):
+    return sum(prices)
+
+print(total_bill(100, 200, 50))     # 3 items
+print(total_bill(500, 120, 230, 150))  # 4 items
+
+#Real-Life Example 2: Logging or Debugging Tool helps jab message me unpredictable text add karna ho.
+def log_message(*args):
+    print("[LOG]:", *args)
+
+log_message("Error:", "Invalid password", "at", "login()")
+
+
+#**kwargs — Keyword Arguments **kwargs tab use hota hai jab function ko key-value pairs me flexible arguments milte hain.
+#Yeh sab ko ek dictionary me store karta hai.
+
+def make_api_call(**params):
+    print("API called with:", params)
+
+make_api_call(url="https://api.example.com", method="GET", timeout=5)
+make_api_call(url="https://geeksforgeeks",ipaddress="172.34.5.90")
+
+#Real-Life Example: Using Both Together
+
+def generate_report(*args,**kwargs):
+    print("student details",kwargs.get("name"))
+    print("subjects",args)
+
+generate_report("math","science","hindi",name="pritam",age=23)
+
+#Lambda ek small anonymous function hoti hai — matlab naam nahi hota (no def keyword).
+#. lambda arguments: expression
+#1. Example 1: Function returning a lambda
+sq=lambda x:x*x
+print(sq(5))
+
+#2. Using Lambda with Built-in Functions Lambda is most useful with Python’s higher-order functions like map(), filter(), and sorted().
+
+nums=[1,2,3,4,5]
+print(list(map(lambda x:x**2,nums)))
+
+
+print(list(filter(lambda x:x%2==0,nums)))
+
+students = [("Amit", 90), ("Riya", 85), ("Karan", 95)]
+
+print(sorted(students,key=lambda x:x[0]))
+
+
+#lambda for one line 
+print((lambda x,y:x+y)(4,5))
+
+#Maximum of two numbers
+max_no=lambda a,b :a if a>b else b
+print(max_no(2,10))
+
+#first latter capital
+names = ["rahul", "priya", "amit"]
+print(list(map(lambda n:n.capitalize(),names)))
+
+
+format_list=lambda lst: list(map(lambda n:n[0].upper()+n[1:].lower(),lst))
+print(format_list(names))
+
+#without using the map function how to use list in lambda function: Another example — Square every number
+lst=[1,2,3,4,5,6]
+
+fun=lambda lst:[x**2 for x in lst]
+print(fun(lst))
+
+
+# try and except
+try :
+    print(1/0)
+except Exception as e:
+    print(e) 
+
+try:
+    f=open("text.txt","r")
+    print(f.read())
+ 
+except Exception as e1:
+    print(e1)      
+
+#Write a program to create a text file and write some lines in it.
+
+with open("text.txt","w") as f:
+    f.write("hello this is line 1 \n")
+    f.write("hello this is line 2 \n")
+
+print("File sucessfully written")
+
+#Read the file content and display it.
+
+with open("text.txt","r") as f:
+    content=f.read()
+
+print("file content is below\n",content)    
+
+#Read a file line by line using a loop.
+with open("text.txt","r") as f:
+    for line in f:
+        print(line.strip())
+
+#Append new text to an existing file.
+with open("text.txt","a") as f:
+    f.write("this is new line which has been added\n")
+
+print("new line is added successfully")
+
+#Count how many lines, words, and characters are in a file.
+with open("text.txt","r") as f:
+    lines=f.readlines()
+
+num_lines=len(lines)
+num_words= sum(len(line.split()) for line in lines)   
+num_chars=sum(len(line) for line in lines) 
+print(num_lines)
+print(num_words)
+print(num_chars)
+
+#Copy content of one file into another.
+with open("text.txt","r") as src:
+    with open("dest.txt","w") as dest:
+        dest.write(src.read())
+
+print("files copy sucessfully")    
+
+with open("dest.txt","r") as f:
+    print(f.read())
+
+#Read a file and print only the lines that contain a specific word (e.g., “hello”).
+word="hello"
+with open("text.txt","r") as f:
+    for line in f:
+        if word in line:
+            print(line.strip())    
+
+#Handle file not found error using try-except.
+try:
+    with open("missing.txt","r") as f:
+        print(f.read())
+except Exception as e:
+    print(e)     
+
+#Replace a specific word in a file (without losing content)
+with open("text.txt","r") as f:
+    data=f.read()
+
+data=data.replace("hello","pri")
+with open("text.txt","w") as f:
+    f.write(data)
+
+print("write data successfully!")
+
+with open("text.txt","r") as f:
+    print(f.read())
+
+#Write a list of strings to a file (each item in a new line)
+list1=["apple","orange","mango"]
+
+with open("fruits.txt","w") as f:
+    for item in list1:
+        f.write(item+"\n")
+
+with open("fruits.txt","r") as f:
+    print(f.read())        
+
+
+#create a new text file 
+print("################This is the new files and project\n")
+with open("python.txt","w") as f:
+    f.write("Python is easy to learn.\n")
+    f.write("Practice makes you perfect.\n")
+    f.write("Keep learning every day.\n")
 
 
 
+with open("python.txt","r") as f:
+    content=f.read()   
+    print(content) 
+  
+#count the lines in file:
+with open("python.txt","r") as f:
+    c=0
+    for line in f:
+        if "Python" in line:
+            c=c+1
+    print(c)        
+        
+#Ignore Comment Lines (starting with ‘#’)
+with open("python.txt","r") as f:
+    c=0
+    for line in f:
+        if not line.strip().startswith("#"):
+            c=c+1
+    print(c)  
 
+#Write Only Unique Names to a New File
+with open("python.txt","r") as f:
+    names=f.read().splitlines()
+    print(names)
 
+unique_names=list(set([item for sublist in set(names) for item in sublist.split()]))
 
+print(unique_names)
 
+with open("uniquenames.txt","w") as f:
+    for name in unique_names:
+        f.write(name+" ")   
 
-
-
-
+with open("uniquenames.txt","r") as f:
+    print(f.read())
