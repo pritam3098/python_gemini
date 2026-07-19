@@ -56,6 +56,16 @@ print(len(x),len(y),len(z))
 str1="preetam"
 print(set(str1))
 
+# remove duplicate from the string
+s = "pythonisinterestinglanguage"
+u = "".join(set(s))
+for i in u:
+    c = 0
+    for j in s:
+        if i == j:
+            c += 1
+    print(i, c)
+
 #Multiple assignment in one line
 x,y,z=5,10.5,"python"
 print(x,y,z)
