@@ -36,6 +36,11 @@ dict1 = {"a": 1, "b": 2}
 dict2 = {"c": 3, "d": 4}
 print({**dict1,**dict2})
 
+l1=list(dict1.items())
+l2=list(dict2.items())
+l1.extend(l2)
+print(dict(l1))
+
 #Get keys and values from a dictionary
 student = {"name": "Karan", "age": 22, "marks": 88}
 for k,v in student.items():
