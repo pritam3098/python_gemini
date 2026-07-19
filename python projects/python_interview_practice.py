@@ -36,10 +36,18 @@ dict1 = {"a": 1, "b": 2}
 dict2 = {"c": 3, "d": 4}
 print({**dict1,**dict2})
 
+#m-2
 l1=list(dict1.items())
 l2=list(dict2.items())
 l1.extend(l2)
 print(dict(l1))
+
+#m-3
+data = [{"a": 1}, {"b": 2}, {"c": 3}]
+merge={}
+for d in data:
+    merge.update(d)
+print(merge)
 
 #Get keys and values from a dictionary
 student = {"name": "Karan", "age": 22, "marks": 88}
@@ -105,12 +113,7 @@ for k,v in scores.items():
     if v==m:
         print(k)
 
-#Merge list of dictionaries
-data = [{"a": 1}, {"b": 2}, {"c": 3}]
-merge={}
-for d in data:
-    merge.update(d)
-print(merge)
+
 
 
 #Find common elements from two sets
