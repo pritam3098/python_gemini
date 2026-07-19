@@ -98,6 +98,13 @@ scores = {"A": 45, "B": 67, "C": 89, "D": 55,"E":10}
 max_val=max(scores,key=scores.get)
 print(max_val)
 
+# M-2
+m=max(i for i in list(scores.values()))
+print(m)
+for k,v in scores.items():
+    if v==m:
+        print(k)
+
 #Merge list of dictionaries
 data = [{"a": 1}, {"b": 2}, {"c": 3}]
 merge={}
