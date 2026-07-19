@@ -71,11 +71,23 @@ x,y,z=5,10.5,"python"
 print(x,y,z)
 
 #Nested list se sab numbers ka sum nikalo
+#M-1
 nums = [[1, 2, 3], [4, 5], [6, 7, 8]]
 lst4=[]
 for sublist in nums:
     lst4.extend(sublist)
 print(sum(lst4))    
+
+#M-2
+s=""
+for i in nums:
+    for j in i:
+        s=s+str(j)
+print(list(s))
+
+sum_l=sum(int(d)  for d in list(s))
+print(sum_l)
+
 
 #Nested list se sab numbers ka sum nikalo using list comprehension
 print([i for sublist in nums for i in sublist])
