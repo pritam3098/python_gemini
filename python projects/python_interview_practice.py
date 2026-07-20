@@ -181,6 +181,16 @@ keys=list(person.keys())
 values=list(person.values())
 print(f"keys : {keys} values:{values}")
 
+# sublist from dict
+sq={i:i**2 for i in range(1,5)}
+print(sq,type(sq))
+
+list_from_dict=list(sq.items())
+print(list_from_dict,type(list_from_dict))
+
+list_from_dict1=[[k,v] for k,v in sq.items()]
+print(list_from_dict1,type(list_from_dict1))
+
 #Remove all duplicates from list but preserve order
 nums = [1, 2, 2, 3, 1, 4, 5, 4]
 print(list(set(nums)))
