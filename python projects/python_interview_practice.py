@@ -121,6 +121,11 @@ set1 = {1, 2, 3, 4}
 set2 = {3, 4, 5, 6}
 print(set1&set2)
 
+for i in list(set1):
+    for j in list(set2):
+        if i==j:
+            print(i)
+
 #Find unique words in a sentence
 sentence = "python is great and python is easy"
 words=set(sentence.split())
@@ -132,6 +137,28 @@ for i in sentence.split():
     if i not in remove_dup_words:
         remove_dup_words.append(i)
 print(remove_dup_words) 
+
+#how to find the word counts:
+from collections import Counter
+sentence = "python is great and python is easy"
+print(Counter(sentence.split()))
+
+#M-1
+words=sentence.split()
+for w in set(words):
+    print(w,sentence.count(w))
+
+#M-2
+freq={}
+for w in words:
+    if w in freq:
+        freq[w]=freq[w]+1
+    else:
+        freq[w]=1
+
+for k,v in freq.items():
+    print(k,v)
+        
 
 #Dictionary comprehension for square of numbers
 sq={x:x**2 for x in range(1,6)}
