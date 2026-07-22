@@ -191,6 +191,22 @@ print(list_from_dict,type(list_from_dict))
 list_from_dict1=[[k,v] for k,v in sq.items()]
 print(list_from_dict1,type(list_from_dict1))
 
+#how to reverse the distionary
+d = {"a": 1, "b": 2, "c": 3}
+l=[[k,v] for k,v in d.items()]
+print(l)
+
+r_l=[[v,k] for k,v in d.items()]
+print(dict(r_l))
+
+#how to reverse each value of sublist in list 
+nums = [[1, 2, 3], [4, 5, 6], [7, 8]]
+l=[]
+for i in nums:
+    l.append(i[::-1])
+
+print(l)
+
 #Remove all duplicates from list but preserve order
 nums = [1, 2, 2, 3, 1, 4, 5, 4]
 print(list(set(nums)))
@@ -203,7 +219,18 @@ for i in nums:
     else:
         pass    
 
-print(unique_lst)    
+print(unique_lst)  
+
+# how to find the those sublist which sum is equal to target
+nums = [[1, 2, 3], [4, 5, 6], [7,8,1]]
+
+val=16
+for i in nums:
+    if sum([j for j in i])==val:
+        print(i)
+        break
+    else:
+        print("")
 
 #Find all even numbers in nested list
 nums = [[1, 2, 3], [4, 5, 6], [7, 8]]
